@@ -1,3 +1,6 @@
+// Check if the provided board is a valid sudoku problem
+// A sudoku is valid if there are numbers between 1-9 in each row, column and 3*3 grid.
+
 const validSudoku = board => {
   for (let i = 0; i < board.length; i++) {
     rowNumCount = {};
