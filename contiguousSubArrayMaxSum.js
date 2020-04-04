@@ -4,16 +4,16 @@
 const contiguousSubArrayMaxSum = (nums) => {
   let maxSum = nums[0];
   for (let i = 0; i < nums.length; i++) {
-      let localSum = nums[i];
+    let localSum = nums[i];
+    if (localSum > maxSum) {
+      maxSum = localSum;
+    }
+    for (let j = i+1; j < nums.length; j++) {
+      localSum += nums[j];
       if (localSum > maxSum) {
-          maxSum = localSum;
+        maxSum = localSum;
       }
-      for (let j = i+1; j < nums.length; j++) {
-          localSum += nums[j];
-          if (localSum > maxSum) {
-              maxSum = localSum;
-          }
-      }
+    }
   }
   return maxSum;
 };
