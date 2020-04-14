@@ -4,12 +4,12 @@
 arrayCheckSum = (array1, array2, sum) => {
   let diffSet = new Set();
   for (let i = 0; i < array1.length; i++) {
-      diffSet.add(sum - array1[i]);
+    diffSet.add(sum - array1[i]);
   }
   for (let j = 0; j < array2.length; j++) {
-      if (diffSet.has(array2[j])) {
-          return true;
-      }
+    if (diffSet.has(array2[j])) {
+      return true;
+    }
   }
   return false;
 }
