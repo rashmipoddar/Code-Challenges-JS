@@ -32,8 +32,6 @@ const climbingStairs = (n) => {
   return memo[n];
 };
 
-
-
 console.log(climbingStairs(2)); // 2
 console.log(climbingStairs(3)); // 3
 console.log(climbingStairs(5)); // 8
