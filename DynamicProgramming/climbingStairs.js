@@ -32,7 +32,31 @@ const climbingStairs = (n) => {
   return memo[n];
 };
 
-console.log(climbingStairs(2)); // 2
-console.log(climbingStairs(3)); // 3
-console.log(climbingStairs(5)); // 8
+// console.log(climbingStairs(2)); // 2
+// console.log(climbingStairs(3)); // 3
+// console.log(climbingStairs(5)); // 8
+let t0 = console.time('first');
 console.log(climbingStairs(10)); // 89
+let t1 = console.timeEnd('first');
+
+const climbStairs = (n, cache) => {
+  cache = cache || {};
+
+  if (cache[n]) {
+    return cache[n];
+  }
+  if (n < 2) {
+    return n;
+  }
+  
+  if (n === 2) {
+    return 2;       
+  }
+  
+  cache[n] = climbingStairs(n-1, cache) + climbingStairs(n-2), cache;
+  return cache[n];
+};
+
+console.time('second');
+console.log(climbStairs(10));
+console.timeEnd('second');
