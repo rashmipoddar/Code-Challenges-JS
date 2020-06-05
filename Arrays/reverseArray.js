@@ -1,12 +1,22 @@
 // Given an array reverse it in place without creating a new array.
 
-var reverseArray = function(array) {
+// Approach 1 - Swapping using a temp variable
+// const reverseArray = function(array) {
+//   let limit = Math.floor(array.length / 2);
+//   for (let i = 0; i < limit; i++) {
+//     let index = array.length - 1 - i;
+//     let temp = array[index];
+//     array[index] = array[i];
+//     array[i] = temp;
+//   }
+// };
+
+// Approach 2 - Swapping without a temp variable
+const reverseArray = function(array) {
   let limit = Math.floor(array.length / 2);
   for (let i = 0; i < limit; i++) {
     let index = array.length - 1 - i;
-    let temp = array[index];
-    array[index] = array[i];
-    array[i] = temp;
+    [array[index], array[i]] = [array[i], array[index]];
   }
 };
 
