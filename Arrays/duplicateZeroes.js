@@ -28,6 +28,31 @@ const duplicateZeros = (numbers) => {
   }
 }
 
+// Time complexity - O(n)
+
+// const duplicateZeros = (numbers) => {
+//   const len = numbers.length;
+//   let zeroCount = 0;
+//   for (let i = 0; i < len; i++) {
+//     if (numbers[i] === 0) {
+//       zeroCount++;
+//     }
+//   }
+
+//   let totalLength = len + zeroCount;
+//   for (let i = totalLength - 1; i >= 0; i--) {
+//     if (numbers[i - zeroCount] === 0) {
+//       numbers[i] = 0;
+//       numbers[i - 1] = 0;
+//       zeroCount--;
+//       i--;
+//     } else {
+//       numbers[i] = numbers[i - zeroCount];
+//     }
+//   }
+//   numbers.length = len;
+// }
+
 let numbers1 = [1,0,2,3,0,4,5,0];
 duplicateZeros(numbers1);
 console.log(numbers1);
