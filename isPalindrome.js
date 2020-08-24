@@ -24,10 +24,28 @@
 //   return true;
 // }
 
+// const isPalindrome = s => {
+//   s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+//   return s === s.split('').reverse().join('')
+// }
+
+// Recursion
 const isPalindrome = s => {
   s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  return s === s.split('').reverse().join('')
+
+  if (s.length <= 1) {
+    return true;
+  };
+
+  let firstChar = s.slice(0,1);
+  let lastChar = s.slice(-1);
+  if (firstChar !== lastChar) {
+    return false;
+  }
+  s = s.slice(1,-1);
+  return isPalindrome(s);
+  
 }
 
-console.log(isPalindrome('A man, a plan, a canal: Panama'))
-console.log(isPalindrome('A race car'))
+console.log(isPalindrome('A man, a plan, a canal: Panama')); // true
+console.log(isPalindrome('A race car')); // false
