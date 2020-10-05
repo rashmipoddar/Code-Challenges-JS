@@ -1,26 +1,15 @@
-// Given an array, return a modified array that consists of values randomly shuffled from the original array
+// Given an array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+// Return the array in the form [x1,y1,x2,y2,...,xn,yn].
 
-// Approach 1
-const shuffleArray = (numbers) => {
-  let modified = [];
-  while (numbers.length > 0) {
-    let randomIndex = getRandomNumber(0, numbers.length - 1);
-    modified.push(numbers[randomIndex]);
-    numbers.splice(randomIndex, 1); 
+const shuffleArray = (nums, n) => {
+  let shuffledArray = [];
+  for (let i = 0; i < n; i++) {
+    shuffledArray.push(nums[i]);
+    shuffledArray.push(nums[i + n]);
   }
-  return modified;
-}
+  return shuffledArray;
+};
 
-const getRandomNumber = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// Approach 2
-const shuffle = (numbers) => {
-  return numbers.sort((a,b) => Math.random() > 0.5 ? 1 : -1);
-}
-
-console.log(shuffleArray([1,2,3,4,5])); 
-console.log(shuffle([1,2,3,4,5])); 
+console.log(shuffleArray([2,5,1,3,4,7], 3)); // [2,3,5,4,1,7]
+console.log(shuffleArray([1,2,3,4,4,3,2,1], 4)); // [1,4,2,3,3,2,4,1]
+console.log(shuffleArray([1,1,2,2], 2)); // [1,2,1,2]
